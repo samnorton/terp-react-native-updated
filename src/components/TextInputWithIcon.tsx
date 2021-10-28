@@ -23,7 +23,7 @@ const TextInputWithIcon: React.FC<Props> = ({
   passwordType,
   ...restOfProps
 }) => {
-  const [isFocused, setFocused] = useState(false);
+  const [isFocused, setFocused] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
 
   const toggleShowPasswordIcon = () => {
