@@ -22,7 +22,7 @@ const AppNavigator: React.FC<Props> = () => {
         <Stack.Screen
           name="RegisterScreen"
           component={RegisterScreen}
-          options={{headerShown: false}}
+          options={{title: 'Create account', headerBackTitle: 'Sign In'}}
         />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
       </Stack.Navigator>

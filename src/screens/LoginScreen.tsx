@@ -38,7 +38,8 @@ const LoginScreen: React.FC<Props> = navData => {
             password: '',
           }}
           onSubmit={values => {
-            console.log(values);
+            console.log('login >>>>', values);
+            navigateTo('HomeScreen');
           }}
           validationSchema={LoginValidationSchema}>
           {({handleChange, handleSubmit, errors, setFieldTouched, touched}) => (
@@ -50,6 +51,7 @@ const LoginScreen: React.FC<Props> = navData => {
                 <TextInputWithIcon
                   placeholderText="Email"
                   keyboardType="email-address"
+                  autoCapitalize="none"
                   underlineColorAndroid={COLORS.transparent}
                   activeIcon={icons.iconUser}
                   inactiveIcon={icons.iconUserActive}
@@ -65,7 +67,11 @@ const LoginScreen: React.FC<Props> = navData => {
                   onBlur={() => setFieldTouched('password')}
                   passwordType
                 />
-                <Button title="Sign in" onPress={handleSubmit} />
+                <Button
+                  title="Sign in"
+                  onPress={handleSubmit}
+                  customWidth={290}
+                />
 
                 <>
                   <ErrorMessage
