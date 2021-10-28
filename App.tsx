@@ -1,13 +1,11 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import LoginScreen from './src/screens/LoginScreen';
+
 interface Props {}
 
 const App: React.FC<Props> = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.headerText}>Home</Text>
-    </View>
-  );
+  return <LoginScreen />;
 };
 const styles = StyleSheet.create({
   container: {
