@@ -16,14 +16,19 @@ import TextInputWithIcon from '../components/TextInputWithIcon';
 import Button from '../components/Button';
 import ErrorMessage from '../components/ErrorMessage';
 
-interface Props {}
+interface Props {
+  navigation: any;
+}
 
 const LoginValidationSchema = Yup.object().shape({
   email: Yup.string().required().email().label('Email'),
   password: Yup.string().required().min(4).label('Password'),
 });
 
-const LoginScreen: React.FC<Props> = () => {
+const LoginScreen: React.FC<Props> = navData => {
+  const navigateTo = (destinationScreen: string) =>
+    navData.navigation.navigate(destinationScreen);
+
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.keyboardView}>
@@ -79,7 +84,7 @@ const LoginScreen: React.FC<Props> = () => {
               </View>
               <View style={styles.registerContainer}>
                 <Text style={styles.textQuestion}>Don't have an account?</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigateTo('RegisterScreen')}>
                   <Text style={styles.registerLink}>Create an account</Text>
                 </TouchableOpacity>
               </View>
